@@ -17,9 +17,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Teste geração de arquivo CSV dos candidatos ");
 
-
         List<Candidato> candidatos = new ArrayList<>();
-
         candidatos.add(getCandidatoTeste1());
         candidatos.add(getCandidatoTeste2());
 
@@ -43,8 +41,6 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     private static Candidato getCandidatoTeste1() {
@@ -103,7 +99,7 @@ public class Main {
         endereco.setNumero("S/N");
         endereco.setComplemento("Bl 03 ap 113");
         endereco.setBairro("Vila Nazare");
-        endereco.setCidade("Teresinam");
+        endereco.setCidade("Teresina");
         endereco.setEstado("PI");
         candidato.setEndereco(endereco);
 
