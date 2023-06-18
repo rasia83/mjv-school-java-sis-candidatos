@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class CadastroUnico {
 
-    private static String separadorCSV = ";";
+    private static String separadorCSV = ",";
 
     /** Dados Pessoais **/
     private String nome = " ";
