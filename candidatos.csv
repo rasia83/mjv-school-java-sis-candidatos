@@ -1,3 +1,3 @@
 Nome;CPF;Data;Sexo;Logradouro;Numero;Complemento;Bairro;Cidade;Estado;E-mail;Telefone;Celular;WhatsApp;Profissão;Empresa;Salário;Emprego Atual;Habilidades;Pretenção Minima;Pretenção Maxima;
 Tiago Edgar Rasia;22233344455;1983-03-19;MASCULINO;Rua José de Freitas;65;null;Jd Nazareth;Mogi Mirim;SP;tiago_rasia@hotmail.com;;19992544146;true;;;2000.0;true;Java|Spring|SQL|GIT|Agile;2200.0;7500.0;
-Raimundo Nonato Loureiro Castelo Branco;13521779118;1986-04-16;MASCULINO;Ruas das laranjeiras;S/N;Bl 03 ap 113;Vila Nazare;Teresinam;PI;raimundo.nonato@gmail.com;1133511010;11945652353;true;Analista de sistemas;Microsoft;5279.33;true;Java|Vue3|Postgres|Spring;5279.33;5279.33;
+Raimundo Nonato Loureiro Castelo Branco;13521779118;1986-04-16;MASCULINO;Ruas das laranjeiras;S/N;Bl 03 ap 113;Vila Nazare;Teresina;PI;raimundo.nonato@gmail.com;1133511010;11945652353;true;Analista de sistemas;Microsoft;5279.33;true;Java|Vue3|Postgres|Spring;5279.33;5279.33;
