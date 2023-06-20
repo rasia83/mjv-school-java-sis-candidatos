@@ -1,75 +1,79 @@
 package com.mjvinnovation.school.siscandidatos.csv;
 
 import com.mjvinnovation.school.siscandidatos.model.Candidato;
-import com.mjvinnovation.school.siscandidatos.model.Sexo;
 
-import java.time.LocalDate;
+import java.text.NumberFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.Objects;
 
 
 public class CadastroUnico {
 
     private static String separadorCSV = ";";
 
+    private final DateTimeFormatter DATA_FORMATO_CSV = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+    private final Locale LOCALE_PT_BR = new Locale("pt", "BR");
+
+
     /** Dados Pessoais **/
-    private String nome = " ";
-    private String cpf = " ";
-    private LocalDate dataNascimento = LocalDate.now() ;
-    private Sexo sexo = Sexo.valueOf("MASCULINO");
+    private String nome;
+    private String cpf;
+    private String dataNascimento;
+    private String sexo;
 
     /** Dados Endereço **/
-    private String logradouro = " ";
-    private String numero = " ";
-    private String complemento = " ";
-    private String bairro = " ";
-    private String cidade = " ";
-    private String estado = " ";
+    private String logradouro;
+    private String numero;
+    private String complemento;
+    private String bairro;
+    private String cidade;
+    private String estado;
 
     /** Dados Contato **/
-    private String email = " ";
-    private String telefone = " ";
-    private String celular = " ";
-    private boolean whatsappDisponivel = false;
+    private String email;
+    private String telefone;
+    private String celular;
+    private String whatsappDisponivel;
 
     /** Dados Profissionais **/
-    private String profissao = " ";
-    private String empresa = " ";
-    private Double salario = 0.0;
-    private boolean empregoAtual = false;
+    private String profissao;
+    private String empresa;
+    private String salario;
+    private String empregoAtual;
 
     /** Habilidades **/
-    private String habilidades = " ";
+    private String habilidades;
 
     /** Pretenção Salarial **/
-    private Double pretencaoMinima = 0.0;
-    private Double pretencaoMaxima = 0.0;
+    private String pretencaoMinima;
+    private String pretencaoMaxima;
 
-
-    public CadastroUnico() {
-    }
 
 
     public CadastroUnico(Candidato candidato) {
-        this.nome = candidato.getNome();
-        this.cpf = candidato.getCpf();
-        this.dataNascimento = candidato.getDataNascimento();
-        this.sexo = candidato.getSexo();
-        this.logradouro = candidato.getEndereco().getLogradouro();
-        this.numero = candidato.getEndereco().getNumero();
-        this.complemento = candidato.getEndereco().getComplemento();
-        this.bairro = candidato.getEndereco().getBairro();
-        this.cidade = candidato.getEndereco().getCidade();
-        this.estado = candidato.getEndereco().getEstado();
-        this.email = candidato.getContato().getEmail();
-        this.telefone = candidato.getContato().getTelefone();
-        this.celular = candidato.getContato().getCelular();
-        this.whatsappDisponivel = candidato.getContato().isWhatsappDisponivel();
-        this.profissao = candidato.getDadosProfissionais().getProfissao();
-        this.empresa = candidato.getDadosProfissionais().getEmpresa();
-        this.salario = candidato.getDadosProfissionais().getSalario();
-        this.empregoAtual = candidato.getDadosProfissionais().isEmpregoAtual();
-        this.habilidades = candidato.getHabilidades();
-        this.pretencaoMinima = candidato.getPretencaoMinima();
-        this.pretencaoMaxima = candidato.getPretencaoMaxima();
+        this.nome = Objects.toString( candidato.getNome() , "");
+        this.cpf = Objects.toString( candidato.getCpf() , "");
+        this.dataNascimento = Objects.toString( candidato.getDataNascimento().format(DATA_FORMATO_CSV) , "");
+        this.sexo = candidato.getSexo().toString();
+        this.logradouro = Objects.toString( candidato.getEndereco().getLogradouro() , "");
+        this.numero = Objects.toString( candidato.getEndereco().getNumero() , "");
+        this.complemento = Objects.toString( candidato.getEndereco().getComplemento() , "");
+        this.bairro = Objects.toString( candidato.getEndereco().getBairro() , "");
+        this.cidade = Objects.toString( candidato.getEndereco().getCidade() , "");
+        this.estado = Objects.toString( candidato.getEndereco().getEstado() , "");
+        this.email = Objects.toString( candidato.getContato().getEmail() , "");
+        this.telefone = Objects.toString( candidato.getContato().getTelefone() , "");
+        this.celular = Objects.toString( candidato.getContato().getCelular() , "");
+        this.whatsappDisponivel = candidato.getContato().isWhatsappDisponivel()?"true":"false";
+        this.profissao = Objects.toString( candidato.getDadosProfissionais().getProfissao() , "");
+        this.empresa = Objects.toString( candidato.getDadosProfissionais().getEmpresa() , "");
+        this.salario = NumberFormat.getCurrencyInstance(LOCALE_PT_BR).format(candidato.getDadosProfissionais().getSalario());
+        this.empregoAtual = candidato.getDadosProfissionais().isEmpregoAtual()?"true":"false";
+        this.habilidades = Objects.toString( candidato.getHabilidades() , "");
+        this.pretencaoMinima = NumberFormat.getCurrencyInstance(LOCALE_PT_BR).format(candidato.getPretencaoMinima());
+        this.pretencaoMaxima = NumberFormat.getCurrencyInstance(LOCALE_PT_BR).format(candidato.getPretencaoMaxima());
     }
 
     public static String headerLineBuilderForCSV() {
